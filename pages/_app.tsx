@@ -20,7 +20,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <div>
         <Navbar />
         <div className="flex gap-6 md:gap-20">
-          <div className="h-[91vh] overflow-hidden xl:hover:overflow-auto border-r-2 border-gray-100 xl:border-0 p-3">
+          <div className="h-[91vh] overflow-hidden xl:hover:overflow-auto border-r-2 border-gray-100 xl:border-0 p-3 relative">
             <Sidebar isLoggedIn = {userProfile? true : false}/>
           </div>
           <div className="mt-4 flex flex-col gap-10 h-[90vh] videos flex-1">

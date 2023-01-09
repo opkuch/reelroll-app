@@ -17,9 +17,7 @@ const Sidebar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 
   return (
     <div>
-      <div
-        className="block xl:hidden m-2 ml-4 mt-3 text-xl"
-      ></div>
+      <div className="block xl:hidden m-2 ml-4 mt-3 text-xl"></div>
       {
         <div className="xl:w-400 w-12 flex flex-col justify-start mb-10">
           <div className="xl:border-b-2 border-gray-200 xl:pb-4">
@@ -36,9 +34,9 @@ const Sidebar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
             <>
               <Discover />
               {/* <SuggestedAccounts /> */}
-              <Footer />
             </>
           )}
+          <Footer />
         </div>
       }
     </div>

@@ -1,10 +1,9 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import { IUser } from '../../types'
 import { Video } from '../../types'
 import { BASE_URL } from '../../utils'
 import axios from 'axios'
 import Image from 'next/image'
-import useAuthStore from '../../store/authStore'
 import MiniVideoCard from '../../components/MiniVideoCard'
 interface IProps {
   user: IUser
@@ -15,10 +14,8 @@ interface IProps {
 const Profile = ({ profileData }: { profileData: IProps }) => {
   const [isUploads, setIsUploads] = useState(true)
   const activeBtn = 'text-lg text-white under bg-purple-600 p-2 rounded'
-  const {userProfile} = useAuthStore()
-    if (!userProfile) return (<div className='h-full w-full flex justify-center items-center text-4xl'>Please login to see profiles!</div>)
   return (
-    (profileData && userProfile) && (
+    profileData && (
       <div className="p-5 flex flex-col bg-[#F8F8F8] justify-center">
         <div className="flex flex-col gap-2 items-center border-b-2 border-gray-200 pb-2">
           <div className="w-[160px] h-[160px]">
@@ -62,13 +59,13 @@ const Profile = ({ profileData }: { profileData: IProps }) => {
                 <p className="text-xl font-semibold text-center underline">
                   My Uploads
                 </p>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className="grid grid-cols-2 gap-2">
                   {profileData.userVideos.length ? (
                     profileData.userVideos.map((video) => (
                       <MiniVideoCard key={video._id} video={video} />
                     ))
                   ) : (
-                    <p className='pt-3'>No uploaded videos yet..</p>
+                    <p className="pt-3">No uploaded videos yet..</p>
                   )}
                 </div>
               </>
@@ -77,13 +74,13 @@ const Profile = ({ profileData }: { profileData: IProps }) => {
                 <p className="text-xl font-semibold text-center underline">
                   Liked videos
                 </p>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className="grid grid-cols-2 gap-2">
                   {profileData.userLikedVideos.length ? (
                     profileData.userLikedVideos.map((video) => (
                       <MiniVideoCard key={video._id} video={video} />
                     ))
                   ) : (
-                    <p className='pt-3'>No liked videos</p>
+                    <p className="pt-3">No liked videos</p>
                   )}
                 </div>
               </>
