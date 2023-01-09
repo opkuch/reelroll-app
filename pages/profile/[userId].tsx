@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { IUser } from '../../types'
 import { Video } from '../../types'
-import { BASE_URL } from '../../utils'
 import axios from 'axios'
 import Image from 'next/image'
 import MiniVideoCard from '../../components/MiniVideoCard'
@@ -97,7 +96,7 @@ export const getServerSideProps = async ({
 }: {
   params: { userId: string }
 }) => {
-  const { data } = await axios.get(`${BASE_URL}/api/profile/${userId}`)
+  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/profile/${userId}`)
 
   return {
     props: { profileData: data },

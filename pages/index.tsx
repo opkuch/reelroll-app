@@ -2,7 +2,6 @@ import axios from 'axios'
 import NoResults from '../components/NoResults'
 import VideoCard from '../components/VideoCard'
 import { Video } from '../types'
-import { BASE_URL } from '../utils'
 
 interface IProps {
   videos: Video[]
@@ -22,8 +21,8 @@ export const getServerSideProps = async ({
   query: { topic: string };
 }) => {
   let response
-  if (topic)  response = await axios.get(`${BASE_URL}/api/discover/${topic}`)
-  else  response = await axios.get(`${BASE_URL}/api/post`)
+  if (topic)  response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/discover/${topic}`)
+  else  response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post`)
 
   return {
     props: {videos: response.data}

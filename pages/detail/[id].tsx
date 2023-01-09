@@ -5,7 +5,6 @@ import LikeButton from '../../components/LikeButton'
 import VideoComments from '../../components/VideoComments'
 import useAuthStore from '../../store/authStore'
 import { Video } from '../../types'
-import { BASE_URL } from '../../utils'
 interface IProps {
   postDetails: Video
 }
@@ -22,7 +21,7 @@ const Detail = ({ postDetails }: IProps) => {
       userId: userProfile?._id,
       at: Date.now(),
     }
-    await axios.put(`${BASE_URL}/api/post/${postDetails._id}`, document)
+    await axios.put(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/${postDetails._id}`, document)
     router.push('/detail/' + postDetails._id)
   }
 
@@ -38,7 +37,7 @@ const Detail = ({ postDetails }: IProps) => {
     if (!userProfile) return
     const like = isLiked ? false : true
     const reqBody = { userId: userProfile._id, like, postId: post._id }
-    const res = await axios.put(`${BASE_URL}/api/like`, reqBody)
+    const res = await axios.put(`${process.env.NEXT_PUBLIC_BASE_URL}/api/like`, reqBody)
     setPost({ ...post, likes: res.data.likes })
   }
 
@@ -74,7 +73,7 @@ export const getServerSideProps = async ({
 }: {
   params: { id: string }
 }) => {
-  const { data } = await axios.get(`${BASE_URL}/api/post/${id}`)
+  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/${id}`)
 
   return {
     props: { postDetails: data },

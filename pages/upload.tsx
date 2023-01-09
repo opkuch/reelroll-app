@@ -7,7 +7,6 @@ import { SanityAssetDocument } from '@sanity/client'
 import UploadInput from '../components/UploadInput'
 import PostVideoForm from '../components/PostVideoForm'
 import axios from 'axios'
-import { BASE_URL } from '../utils'
 
 const Upload = () => {
   const router = useRouter()
@@ -64,7 +63,7 @@ const Upload = () => {
       topic: category
     }
 
-    await axios.post(BASE_URL + '/api/post', document)
+    await axios.post(process.env.NEXT_PUBLIC_BASE_URL + '/api/post', document)
     router.push('/')
   }
   
