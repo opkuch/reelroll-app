@@ -20,6 +20,7 @@
     "react-dom": "18.1.0",
     "react-icons": "^4.7.1",
     "uuidv4": "^6.2.13",
+    "vercel": "^28.10.3",
     "zustand": "^4.2.0"
   },
   "devDependencies": {
