@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { NextPage } from 'next'
+import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { AiFillHome, AiOutlineMenu } from 'react-icons/ai'
-import { ImCancelCircle } from 'react-icons/im'
+// import { ImCancelCircle } from 'react-icons/im'
 import Discover from './Discover'
-import SuggestedAccounts from './SuggestedAccounts'
+// import SuggestedAccounts from './SuggestedAccounts'
 import Footer from './Footer'
 
 const Sidebar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {

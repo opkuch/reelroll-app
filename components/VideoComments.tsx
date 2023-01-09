@@ -2,7 +2,6 @@ import React from 'react'
 import useAuthStore from '../store/authStore'
 import AddComment from './AddComment'
 import CommentPreview from './CommentPreview'
-import NoResults from './NoResults'
 
 const VideoComments = ({ comments, postComment }: { comments: any, postComment: any }) => {
   const {userProfile} = useAuthStore()

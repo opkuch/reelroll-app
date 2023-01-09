@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { Video } from '../types'
 import { NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GoVerified } from 'react-icons/go'
-import VideoComments from './VideoComments'
+
 interface IProps {
   post: Video
 }

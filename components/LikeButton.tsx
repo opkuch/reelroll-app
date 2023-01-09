@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import {BsSuitHeart, BsSuitHeartFill} from 'react-icons/bs'
 
 const LikeButton = ({handleLike, isLiked}: any) => {

@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   if (isSSR) return null
 
   return (
-    <GoogleOAuthProvider clientId="237863231881-dodnacnclgqmnbtpan58rk6j6v95jauq.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN || ''}>
       <div>
         <Navbar />
         <div className="flex gap-6 md:gap-20">

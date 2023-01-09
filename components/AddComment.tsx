@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
 import useAuthStore from '../store/authStore'
-import { BASE_URL } from '../utils'
 import Image from 'next/image'
 
 const AddComment = ({ postComment }: any) => {
