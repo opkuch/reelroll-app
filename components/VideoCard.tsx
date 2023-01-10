@@ -43,12 +43,12 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
         </div>
         <div className="lg:ml-20 flex relative lg:bottom-[50px]">
           <div className="relative rounded-3xl">
-            <div className="lg:relative top-[45px] left-[10px] mb-3"></div>
+            <div className="lg:relative top-[45px] left-[10px]"></div>
             <Link href={`/detail/${post._id}`}>
               <video
                 loop
                 controls={true}
-                className="max-h-[600px] w-[600px] rounded-2xl cursor-pointer py-4"
+                className="max-h-[600px] w-[850px] rounded-2xl cursor-pointer pb-4 lg:py-4"
                 src={post.video.asset.url}
                 ref={videoRef}                
               ></video>
