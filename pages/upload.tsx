@@ -13,14 +13,15 @@ const Upload = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [videoAsset, setVideoAsset] = useState<SanityAssetDocument>()
   const [wrongFileType, setWrongFileType] = useState(false)
-  const [savingPost, setSavingPost] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
   const { userProfile }: { userProfile: any } = useAuthStore()
 
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0]
     const allowedFileTypes = ['video/mp4', 'video/webm', 'video/ogg']
-    if (!selectedFile) return
+    if (!selectedFile || !userProfile) return
     else if (allowedFileTypes.includes(selectedFile.type)) {
+      setIsUploading(true)
       wrongFileType && setWrongFileType(false)
       setIsLoading(true)
       client.assets
@@ -34,7 +35,7 @@ const Upload = () => {
         })
         .catch((err) => {
           console.log('Cannot upload video', err)
-        })
+        }).finally(() => setIsUploading(false))
     } else {
       setIsLoading(false)
       setWrongFileType(true)
@@ -42,8 +43,7 @@ const Upload = () => {
   }
 
   const handlePost = async (caption: string, category: string) => {
-    if (!caption || !category || !userProfile || isLoading || !videoAsset) return
-    setSavingPost(true)
+    if (!caption || !category || !userProfile || isLoading || !videoAsset || isUploading) return
 
     const document = {
       _type: 'post',

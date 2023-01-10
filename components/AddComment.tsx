@@ -19,7 +19,7 @@ const AddComment = ({ postComment }: any) => {
         <input
           type="text"
           placeholder="Write Comment.."
-          className="p-2 rounded w-[80%] lg:w-[55%] bg-gray-200 outline outline-1 outline-gray-300"
+          className="p-2 rounded w-[80%] bg-gray-200 outline outline-1 outline-gray-300"
           value={commentInput}
           onChange={(e) => setCommentInput(e.target.value)}
         />

@@ -17,18 +17,6 @@ const Profile = ({ profileData }: { profileData: IProps }) => {
     profileData && (
       <div className="p-5 flex flex-col bg-[#F8F8F8] justify-center">
         <div className="flex flex-col gap-2 items-center border-b-2 border-gray-200 pb-2">
-          <div className="w-[160px] h-[160px]">
-            <>
-              <Image
-                width={150}
-                height={150}
-                className="rounded-full"
-                src={profileData.user.image}
-                alt="profile photo"
-                layout="responsive"
-              />
-            </>
-          </div>
           <div>
             <div className="flex items-center">
               <p className="capitalize font-medium text-gray-800 xl:text-6xl md:block text-3xl">
@@ -55,10 +43,10 @@ const Profile = ({ profileData }: { profileData: IProps }) => {
           <div>
             {isUploads ? (
               <>
-                <p className="text-xl font-semibold text-center underline">
+                <p className="text-xl font-semibold text-center">
                   My Uploads
                 </p>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid lg:grid-cols-[minmax(0,_550px)_minmax(0,_550px)] grid-cols-1 gap-2">
                   {profileData.userVideos.length ? (
                     profileData.userVideos.map((video) => (
                       <MiniVideoCard key={video._id} video={video} />
@@ -70,10 +58,10 @@ const Profile = ({ profileData }: { profileData: IProps }) => {
               </>
             ) : (
               <>
-                <p className="text-xl font-semibold text-center underline">
+                <p className="text-xl font-semibold text-center">
                   Liked videos
                 </p>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid lg:grid-cols-[minmax(0,_550px)_minmax(0,_550px)] grid-cols-1 gap-2">
                   {profileData.userLikedVideos.length ? (
                     profileData.userLikedVideos.map((video) => (
                       <MiniVideoCard key={video._id} video={video} />

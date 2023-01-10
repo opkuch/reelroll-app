@@ -6,7 +6,7 @@ import CommentPreview from './CommentPreview'
 const VideoComments = ({ comments, postComment }: { comments: any, postComment: any }) => {
   const {userProfile} = useAuthStore()
   return (
-    <div className='py-2 w-full'>
+    <div className='py-2 w-full px-5'>
         {userProfile? <AddComment postComment={postComment}/> : ''}
         <div className='flex items-center gap-1 pb-3 border-b-2'>
             <span className='capitalize text-lg font-semibold'>comments</span>
@@ -14,7 +14,7 @@ const VideoComments = ({ comments, postComment }: { comments: any, postComment: 
         </div>
       {comments?.length
         ? comments.map((comment: any, idx: number) => <CommentPreview key={idx} comment={comment} />)
-        : <div>No comments yet</div>}
+        : <div className='py-3'>No comments yet</div>}
     </div>
   )
 }
